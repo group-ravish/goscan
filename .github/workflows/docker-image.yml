@@ -1,0 +1,28 @@
+name: Docker
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  push-docker:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Change to directory with Dockerfile
+      run: cd ./
+      
+    - name: Build and Push openresty Docker Image
+      uses: mr-smithers-excellent/docker-build-push@v4
+      with:
+        image: guruparvesh/sentinal-shield
+        registry: docker.io
+        dockerfile: Dockerfile
+        directory: /
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
