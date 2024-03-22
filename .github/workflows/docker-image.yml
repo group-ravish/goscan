@@ -13,11 +13,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-
-    - name: Change to directory with Dockerfile
-      run: cd ./
       
-    - name: Build and Push openresty Docker Image
+    - name: Build and Push sentinal-shield Docker Image
       uses: mr-smithers-excellent/docker-build-push@v4
       with:
         image: guruparvesh/sentinal-shield
