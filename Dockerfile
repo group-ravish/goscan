@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y libc6 zip libc6-dev-i386 nmap net-tools
 # RUN apt-get update && apt-get install -y <package_name>
 
 # Copy the binary into the container
-COPY ./goscan /usr/local/bin/goscan
+COPY . /usr/local/bin/
+#COPY goscan /usr/local/bin/goscan
 
 # Set execute permissions on the binary
 RUN chmod +x /usr/local/bin/goscan
